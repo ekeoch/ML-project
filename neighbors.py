@@ -1,13 +1,13 @@
 import operator
-import euclideanDistance
+import euclidean_distance as ed
 
 
 def get_neighbors(training_set, test_instance, k):
     distances = []
     length = len(test_instance) - 1
     for x in range(len(training_set)):
-        dist = euclideanDistance.euclidean_distance(test_instance, training_set[x], length)
-        distances.append((training_set, dist))
+        dist = ed.euclidean_distance(test_instance, training_set[x], length)
+        distances.append((training_set[x], dist))
     distances.sort(key=operator.itemgetter(1))
     neighbors = []
     for x in range(k):
